@@ -23,4 +23,5 @@
 6. go to ```http://127.0.0.1:5000/```
 
 
-*Since it is still not finished, some problems may occur, for now, the only solution I can offer is to stop the process (ctrl + C) and repeat steps 2-5*
+*Since it is still not finished, some problems may occur, for now, the only solution I can offer is to stop the process
+(ctrl + C) and repeat steps 2-5*
