@@ -4,6 +4,6 @@ CREATE TABLE urls (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     original_url TEXT NOT NULL,
-     custom_short_link TEXT NULL UNIQUE,
+    custom_short_link TEXT NULL UNIQUE,
     clicks INTEGER NOT NULL DEFAULT 0
 );

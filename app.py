@@ -27,21 +27,30 @@ def index():
             return redirect(url_for('index'))
 
         if optional_url:
-            url_data = conn.execute('INSERT INTO urls (original_url, custom_short_link) VALUES (?)',
-                                (url,optional_url,)) # need to eddit the query
+            url_data = conn.execute('INSERT INTO urls (original_url, custom_short_link) VALUES (?,?)',
+                                (url,optional_url,))
+
+            conn.commit()
+            conn.close()
+
+            url_id = url_data.lastrowid
+            hashid = hashids.encode(url_id)
+            short_url = request.host_url + hashid
+            # short_url = request.host_url + optional_url
+
+            return render_template('index.html', short_url=short_url, optional_url=optional_url)
 
         else:
             url_data = conn.execute('INSERT INTO urls (original_url) VALUES (?)',
                                     (url,))
-        conn.commit()
-        conn.close()
+            conn.commit()
+            conn.close()
 
-        url_id = url_data.lastrowid
-        hashid = hashids.encode(url_id)
-        short_url = request.host_url + hashid
-        # short_url = "Sdsdsdsdvlkmlknskn/" + hashid
+            url_id = url_data.lastrowid
+            hashid = hashids.encode(url_id)
+            short_url = request.host_url + hashid
 
-        return render_template('index.html', short_url=short_url)
+            return render_template('index.html', short_url=short_url)
 
     return render_template('index.html')
 

@@ -22,8 +22,12 @@
     </div>
     </form>
 
-    {% if short_url %}
+    {% if optional_url %}
+    <hr>
+    <span><a href="{{ short_url }}">{{optional_url}}</a></span>
+    {% else %}
     <hr>
     <span>{{ short_url }}</span>
     {% endif %}
+
 {% endblock %}
