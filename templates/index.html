@@ -11,6 +11,13 @@
     </div>
 
     <div class="form-group">
+        <label for="optional-url">Optional URL</label>
+        <input type="text" name="optional-url"
+               placeholder="custom short link" class="form-control"
+               value="{{ request.form['optional-url'] }}" autofocus></input>
+    </div>
+
+    <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
     </form>

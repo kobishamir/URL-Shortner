@@ -20,19 +20,26 @@ def index():
 
     if request.method == 'POST':
         url = request.form['url']
+        optional_url = request.form['optional-url']
 
         if not url:
             flash('The URL is required!')
             return redirect(url_for('index'))
 
-        url_data = conn.execute('INSERT INTO urls (original_url) VALUES (?)',
-                                (url,))
+        if optional_url:
+            url_data = conn.execute('INSERT INTO urls (original_url, custom_short_link) VALUES (?)',
+                                (url,optional_url,)) # need to eddit the query
+
+        else:
+            url_data = conn.execute('INSERT INTO urls (original_url) VALUES (?)',
+                                    (url,))
         conn.commit()
         conn.close()
 
         url_id = url_data.lastrowid
         hashid = hashids.encode(url_id)
         short_url = request.host_url + hashid
+        # short_url = "Sdsdsdsdvlkmlknskn/" + hashid
 
         return render_template('index.html', short_url=short_url)
 
