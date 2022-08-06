@@ -9,9 +9,10 @@
 
 1. Clone project
 2. In Terminal/CMD go to the directory where the project was downloaded
-3. Run file **"init_db.py"** first - to build the DB with the table in the project directory
-4. Run the file **"app.py"**
-5. run the commands:
+3. Install Flask: ```pip install flask hashids```
+4. Run file **"init_db.py"** first - to build the DB with the table in the project directory
+5. Run the file **"app.py"**
+6. run the commands:
 ```    
        export FLASK_APP=app
        export FLASK_ENV=development
