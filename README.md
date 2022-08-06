@@ -1,5 +1,5 @@
 # URL-Shortner
-## URL Shortned based on python and Flask
+## URL Shortner based on python and Flask
 ### By Kobi Shamir
 
 *That project still not finished and I still have some work to do*
